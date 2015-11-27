@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-calq"
+        version="0.0.1">
+
+	<name>Calq</name>
+    <description>Calq Cordova API Plugin for iOS and Android</description>
+    <keywords>calq, cordova, phonegap, plugin, ios, android</keywords>
+    <author>Calq</author>
+
+    <repo>https://github.com/Calq/Client-Cordova.git</repo>
+    
+    <engines>
+        <engine name="cordova" version=">=3.5.0"/>
+    </engines>
+
+    <js-module src="www/calq.js" name="Calq">
+        <clobbers target="calq"/>
+    </js-module>
+
+    <!-- iOS -->
+    <platform name="ios">
+    
+        <config-file target="config.xml" parent="/*">
+            <feature name="Calq">
+                <param name="ios-package" value="CalqPlugin"/>
+            </feature>
+        </config-file>
+        
+        <!-- Plugin files -->
+        <header-file src="src/ios/CalqPlugin.h"/>
+        <source-file src="src/ios/CalqPlugin.m"/>
+        
+        <!-- Calq SDK files -->
+        <header-file src="src/ios/CalqClient/CalqClient.h"/>
+        <source-file src="src/ios/CalqClient/CalqClient.m"/>
+        <header-file src="src/ios/CalqClient/Analytics/AbstractAnalyticsApiCall.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/AbstractAnalyticsApiCall.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ActionApiCall.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ActionApiCall.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ApiDataStore.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ApiDataStore.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ApiDispatcher.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ApiDispatcher.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ApiHandler.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ApiHandler.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ProfileApiCall.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ProfileApiCall.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/QueuedApiCall.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/QueuedApiCall.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ReservedActionProperties.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ReservedActionProperties.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/ReservedApiProperties.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/ReservedApiProperties.m" target-dir="Analytics"/>
+        <header-file src="src/ios/CalqClient/Analytics/TransferApiCall.h" target-dir="Analytics"/>
+        <source-file src="src/ios/CalqClient/Analytics/TransferApiCall.m" target-dir="Analytics"/>
+        
+        <!-- Calq SDK required libraries -->
+        <framework src="Foundation.framework"/>
+        <framework src="libsqlite3.dylib" />
+            
+    </platform>
+    
+</plugin>
